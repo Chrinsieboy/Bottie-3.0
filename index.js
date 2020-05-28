@@ -11,7 +11,7 @@ client.on("ready", async () => {
     client.user.setActivity("Testing", { type: "PLAYING" });
  
 });
-  
+   
  
 client.on("message", async message => {
  
