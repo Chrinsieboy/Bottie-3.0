@@ -8,7 +8,7 @@ client.on("ready", async () => {
  
     console.log(`${client.user.username} is online.`);
  
-    client.user.setActivity("Testing", { type: "PLAYING" });
+    client.user.setActivity("Bot is in".client.guilds.size."servers", { type: "PLAYING" });
  
 });
    
