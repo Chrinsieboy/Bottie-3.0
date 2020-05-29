@@ -65,11 +65,15 @@ client.on("message", async message => {
     return message.channel.send(serverEmbed);
     }
 
-    if (command === `${prefix}servers`){
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-        return message.channel.send("Deze bot is in", client.guild.size);
+	const args = message.content.slice(prefix.length).split(/ +/);
+	const command = args.shift().toLowerCase();
+
+	if (command === 'stats') {
+		return message.channel.send(`Server count: ${client.guilds.cache.size}`);
     }
- 
+    
 });
 
 // !avatar - Laat de profielfoto van een gebruiker zien.
