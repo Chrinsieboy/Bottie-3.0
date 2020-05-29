@@ -8,7 +8,7 @@ client.on("ready", async () => {
  
     console.log(`${client.user.username} is online.`);
  
-    client.user.setActivity(`${client.guilds.cache.size}`, "Servers", { type: "WATCHING" });
+    client.user.setActivity(`${client.guilds.cache.size} servers`, { type: "LISTENING" });
  
 });
    
