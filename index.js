@@ -4,11 +4,22 @@ const botConfig = require("./botconfig.json");
 const client = new discord.Client();
 client.login(process.env.Token);
  
+let statuses = [`discord.gg/test`, `${client.guilds.cache.size} servers`]
+
+
 client.on("ready", async () => {
  
     console.log(`${client.user.username} is online.`);
  
-    client.user.setActivity(`${client.guilds.cache.size} servers`, { type: "LISTENING" });
+    setInterval(function() {
+
+        let status = statuses[Math.floor(Math.random()*statuses.length)]
+
+        client.user.setPresence({ activity: { name: status }, status: `online`});
+
+    }, 10000)
+    
+    // client.user.setActivity(`${client.guilds.cache.size} servers`, { type: "LISTENING" });
  
 });
    
@@ -31,28 +42,23 @@ client.on("message", async message => {
    
     }
      
-    // if (command === `${prefix}info`) {
+    if (command === `${prefix}info`) {
  
-    //     // Embed wat we gaan laten tonen.
-    //     var botEmbed = new discord.MessageEmbed()
-    //         .setTitle('Userinfo')
-    //         .setDescription("Dit is alle informatie die we konden vinden over")
-    //         .setColor("#ff0000")
-    //         .addField("Bot naam", client.user.username)
+        // Embed wat we gaan laten tonen.
+        var botEmbed = new discord.MessageEmbed()
+            .setTitle('Userinfo')
+            .setDescription("Dit is alle informatie die we konden vinden over")
+            .setColor("#ff0000")
+            .addField("Bot naam", client.user.username)
 
-    //         .setThumbnail('https://i.imgur.com/wSTFkRM.png')
-    //         .setImage('https://i.imgur.com/wSTFkRM.png')
-    //         .setTimestamp()
-    //         .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
+            .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+            .setImage('https://i.imgur.com/wSTFkRM.png')
+            .setTimestamp()
+            .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
 
-    //     // Terug sturen van het bericht
-    //     return message.channel.send(botEmbed);
-    // }
-
-        // .addFields(
-        //     {name:"Bot naam",value: bot.user.username},
-        //     {name:"Bot naam",value: bot.user.username}
-        // )
+        // Terug sturen van het bericht
+        return message.channel.send(botEmbed);
+    }
 
     if (command === `${prefix}serverinfo`) {
 
