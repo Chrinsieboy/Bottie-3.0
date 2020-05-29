@@ -64,6 +64,11 @@ client.on("message", async message => {
 
     return message.channel.send(serverEmbed);
     }
+
+    if (command === `${prefix}servers`){
+
+        return message.channel.send("Deze bot is in", guild.size);
+    }
  
 });
 
