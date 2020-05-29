@@ -4,7 +4,7 @@ const botConfig = require("./botconfig.json");
 const client = new discord.Client();
 client.login(process.env.Token);
  
-let statuses = [`discord.gg/test`, `${client.guilds.cache.size} servers`]
+let statuses = [`discord.gg/`, `in ${client.guilds.cache.size} servers`]
 
 
 client.on("ready", async () => {
