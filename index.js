@@ -15,7 +15,7 @@ client.on("ready", async () => {
 
         let status = statuses[Math.floor(Math.random()*statuses.length)]
 
-        client.user.setPresence({ activity: { name: status }, status: `online`});
+        bot.user.setActivity(`https://discord.gg/X9BTxbb`, { type: "STREAMING" });
 
     }, 10000)
     
