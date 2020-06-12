@@ -38,7 +38,7 @@ client.on("message", async message => {
             .setTitle("Info")
             .setDescription("hier zie je informatie over jezelf")
             .setColor("#ff0000")
-            .addField(message.author)
+            .addField("name", message.author.nickname)
  
             .setThumbnail('https://i.imgur.com/wSTFkRM.png')
             .setImage('https://i.imgur.com/wSTFkRM.png')
