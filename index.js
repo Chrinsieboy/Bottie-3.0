@@ -9,7 +9,7 @@ client.on("ready", async () => {
  
     console.log(`${client.user.username} is online.`);
     
-    client.user.setActivity(`Likt aan Ricks zijn kont`, { type: "LISTENING" });
+    client.user.setActivity(`met Ricks zijn kont`, { type: "PLAYING" });
  
 });
    
