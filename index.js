@@ -43,10 +43,23 @@ client.on("message", async message => {
             .setThumbnail('https://i.imgur.com/wSTFkRM.png')
             .setImage('https://i.imgur.com/wSTFkRM.png')
             .setTimestamp()
-            .setFooter('Bottie 3.0 - Alle rechten voorbehouden', 'https://www.chris.friemann.nl/discord/logo.png');
+            .setFooter('© 2020 Bottie 3.0. Alle Rechten Voorbehouden.', 'https://www.chris.friemann.nl/discord/logo.png');
  
         // Terug sturen van het bericht
         return message.channel.send(botEmbed);
+    }
+
+    if (command === `${prefix}avatar`) {
+
+        var request = await message.channel.send("Avatar wordt geladen...").then(msg => msg.delete(3000));;
+        var taggedUser = message.mentions.users.first() || message.author;
+     
+        var avatarEmbed = new discord.RichEmbed()
+           .setColor("#ff0000")
+           .setImage(taggedUser.displayAvatarURL)
+           .setFooter("© 2020 Bottie 3.0. Alle Rechten Voorbehouden.");
+     
+        return message.channel.send(avatarEmbed);
     }
  
     // .addFields(
