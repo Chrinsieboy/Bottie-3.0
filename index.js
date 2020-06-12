@@ -35,15 +35,15 @@ client.on("message", async message => {
     if (command === `${prefix}info`) {
         // Embed wat we gaan laten tonen.
         var botEmbed = new discord.MessageEmbed()
-            .setTitle(message.guild.author)
-            .setDescription("Zet de beschrijving")
-            .setColor("#0099ff")
-            .addField("Bot naam", client.user.username)
+            .setTitle("Info")
+            .setDescription("hier zie je informatie over jezelf")
+            .setColor("#ff0000")
+            .addField(client.user.username)
  
             .setThumbnail('https://i.imgur.com/wSTFkRM.png')
             .setImage('https://i.imgur.com/wSTFkRM.png')
             .setTimestamp()
-            .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
+            .setFooter('Bottie 3.0 - 2020 Alle rechten voorbehouden', 'https://www.chris.friemann.nl/discord/logo.png');
  
         // Terug sturen van het bericht
         return message.channel.send(botEmbed);
