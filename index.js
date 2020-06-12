@@ -3,23 +3,13 @@ const botConfig = require("./botconfig.json");
  
 const client = new discord.Client();
 client.login(process.env.Token);
- 
-let statuses = [`discord.gg/`, `in ${client.guilds.cache.size} servers`]
 
 
 client.on("ready", async () => {
  
     console.log(`${client.user.username} is online.`);
- 
-    setInterval(function() {
-
-        let status = statuses[Math.floor(Math.random()*statuses.length)]
-
-        client.user.setPresence({ activity: { name: status }, status: `online`});
-
-    }, 10000)
     
-    // client.user.setActivity(`${client.guilds.cache.size} servers`, { type: "LISTENING" });
+    client.user.setActivity(`Likt aan Ricks zijn kont`, { type: "LISTENING" });
  
 });
    
@@ -40,39 +30,6 @@ client.on("message", async message => {
  
         return message.channel.send("Hallo!!");
    
-    }
-     
-    if (command === `${prefix}info`) {
- 
-        // Embed wat we gaan laten tonen.
-        var botEmbed = new discord.MessageEmbed()
-            .setTitle('Userinfo')
-            .setDescription("Dit is alle informatie die we konden vinden over")
-            .setColor("#ff0000")
-            .addField("Bot naam", client.user.username)
-
-            .setThumbnail('https://i.imgur.com/wSTFkRM.png')
-            .setImage('https://i.imgur.com/wSTFkRM.png')
-            .setTimestamp()
-            .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
-
-        // Terug sturen van het bericht
-        return message.channel.send(botEmbed);
-    }
-
-    if (command === `${prefix}serverinfo`) {
-
-        var serverEmbed = new discord.MessageEmbed()
-        .setDescription("**Serverinfo**")
-        .setColor("#ff0000")
-        .addField("Je bent deze server gejoind op", message.member.joinedAt)
-        .addField("Totaal members", message.guild.memberCount);
-
-    return message.channel.send(serverEmbed);
-    }
-
-	if (command === `${prefix}stats`) {
-		return message.channel.send(`Server count: ${client.guilds.cache.size}`);
     }
     
 });
