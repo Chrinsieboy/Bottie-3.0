@@ -35,7 +35,7 @@ client.on("message", async message => {
     if (command === `${prefix}info`) {
         // Embed wat we gaan laten tonen.
         var botEmbed = new discord.MessageEmbed()
-            .setTitle('Een titel')
+            .setTitle(message.guild.author)
             .setDescription("Zet de beschrijving")
             .setColor("#0099ff")
             .addField("Bot naam", client.user.username)
