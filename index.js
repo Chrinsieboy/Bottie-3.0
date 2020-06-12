@@ -38,12 +38,12 @@ client.on("message", async message => {
             .setTitle("Info")
             .setDescription("hier zie je informatie over jezelf")
             .setColor("#ff0000")
-            .addField(client.user.username)
+            .addField(message.author.user.username)
  
             .setThumbnail('https://i.imgur.com/wSTFkRM.png')
             .setImage('https://i.imgur.com/wSTFkRM.png')
             .setTimestamp()
-            .setFooter('Bottie 3.0 - 2020 Alle rechten voorbehouden', 'https://www.chris.friemann.nl/discord/logo.png');
+            .setFooter('Bottie 3.0 - Alle rechten voorbehouden', 'https://www.chris.friemann.nl/discord/logo.png');
  
         // Terug sturen van het bericht
         return message.channel.send(botEmbed);
