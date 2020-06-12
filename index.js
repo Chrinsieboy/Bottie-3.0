@@ -31,7 +31,40 @@ client.on("message", async message => {
         return message.channel.send("Hallo!!");
    
     }
-    
+   
+    if (command === `${prefix}info`) {
+        // Embed wat we gaan laten tonen.
+        var botEmbed = new discord.MessageEmbed()
+            .setTitle('Een titel')
+            .setDescription("Zet de beschrijving")
+            .setColor("#0099ff")
+            .addField("Bot naam", client.user.username)
+ 
+            .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+            .setImage('https://i.imgur.com/wSTFkRM.png')
+            .setTimestamp()
+            .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
+ 
+        // Terug sturen van het bericht
+        return message.channel.send(botEmbed);
+    }
+ 
+    // .addFields(
+    //     {name:"Bot naam",value: bot.user.username},
+    //     {name:"Bot naam",value: bot.user.username}
+    // )
+ 
+    if (command === `${prefix}serverinfo`) {
+ 
+        var serverEmbed = new discord.MessageEmbed()
+            .setDescription("Zet de beschrijving")
+            .setColor("#kleur")
+            .addField("Bot naam", client.user.username)
+            .addField("Je bent deze server gejoind op", message.member.joinedAt)
+            .addField("Totaal memebers", message.guild.memberCount);
+ 
+        return message.channel.send(serverEmbed);
+    }
 });
 
 // !avatar - Laat de profielfoto van een gebruiker zien.
