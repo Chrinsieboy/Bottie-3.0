@@ -32,16 +32,16 @@ client.on("message", async message => {
    
     }
    
-    if (command === `${prefix}info`) {
+    if (command === `${prefix}botinfo`) {
         // Embed wat we gaan laten tonen.
         var botEmbed = new discord.MessageEmbed()
-            .setTitle("Info")
-            .setDescription("hier zie je informatie over jezelf")
+            .setTitle("Botinfo")
+            .setDescription("Hier zie je de info van de bot")
             .setColor("#ff0000")
-            .addField("name", message.author.user)
+            .addField("Naam bot", client.user.username)
+
  
-            .setThumbnail('https://i.imgur.com/wSTFkRM.png')
-            .setImage('https://i.imgur.com/wSTFkRM.png')
+            .setThumbnail('https://www.chris.friemann.nl/discord/logo.png')
             .setTimestamp()
             .setFooter('© 2020 Bottie 3.0. Alle Rechten Voorbehouden.', 'https://www.chris.friemann.nl/discord/logo.png');
  
