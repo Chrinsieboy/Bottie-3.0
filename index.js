@@ -41,7 +41,7 @@ client.on("message", async message => {
             .addField("Naam bot", client.user.username)
             .addField("Gemaakt op", client.user.createdAt)
             .addField("Gemaakt door", "Chrinsieboyyy#3976")
-            .addField("ID:", bot.user.id)
+            .addField("ID:", client.user.id)
 
             .setThumbnail('https://www.chris.friemann.nl/discord/logo.png')
             .setTimestamp()
