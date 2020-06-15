@@ -58,13 +58,6 @@ client.on("message", async message => {
 
     if(commands) commands.run(client, message, arguments);
 
-
- 
-    // if (command === `${prefix}hallo`) {
- 
-    //     return message.channel.send("Hallo!!");
-   
-    // }
    
     if (command === `${prefix}botinfo`) {
         // Embed wat we gaan laten tonen.
