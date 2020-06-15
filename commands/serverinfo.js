@@ -14,5 +14,5 @@ return message.channel.send(serverEmbed);
 }
 
 module.exports.help = {
-    name: "hallo"
+    name: "serverinfo"
 }
