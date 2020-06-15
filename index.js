@@ -4,6 +4,7 @@ const botConfig = require("./botconfig.json");
 const fs = require("fs");
  
 const client = new discord.Client();
+client.commands = new discord.Collection();
 client.login(process.env.Token);
 
 fs.readdir("./commands/", (err, files) => {
@@ -21,6 +22,8 @@ fs.readdir("./commands/", (err, files) => {
 
         var fileGet = require(`./commands/${f}`);
         console.log(`${f} is online`)
+
+        client.commands.set(fileGet.help.name, fileGet);
 
     })
 
@@ -47,12 +50,21 @@ client.on("message", async message => {
     var messageArray = message.content.split(" ");
  
     var command = messageArray[0];
+
+    var arguments = messageArray.slice(1);
+
+
+    var commands = client.commands.get(command.slice(prefix.length));
+
+    if(commands) commands.run(bot, message, arguments);
+
+
  
-    if (command === `${prefix}hallo`) {
+    // if (command === `${prefix}hallo`) {
  
-        return message.channel.send("Hallo!!");
+    //     return message.channel.send("Hallo!!");
    
-    }
+    // }
    
     if (command === `${prefix}botinfo`) {
         // Embed wat we gaan laten tonen.
