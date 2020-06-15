@@ -58,43 +58,6 @@ client.on("message", async message => {
 
     if(commands) commands.run(client, message, arguments);
 
-   
-    if (command === `${prefix}botinfo`) {
-        // Embed wat we gaan laten tonen.
-        var botEmbed = new discord.MessageEmbed()
-            .setTitle("Botinfo")
-            .setDescription("Hier zie je de info van de bot")
-            .setColor("#ff0000")
-            .addField("Naam bot", client.user.username)
-            .addField("Gemaakt op", client.user.createdAt)
-            .addField("Gemaakt door", "Chrinsieboyyy#3976")
-            .addField("ID:", client.user.id)
-
-            .setThumbnail('https://www.chris.friemann.nl/discord/logo.png')
-            .setTimestamp()
-            .setFooter('© 2020 Bottie 3.0. Alle Rechten Voorbehouden.', 'https://www.chris.friemann.nl/discord/logo.png');
- 
-        // Terug sturen van het bericht
-        return message.channel.send(botEmbed);
-    }
- 
-    // .addFields(
-    //     {name:"Bot naam",value: bot.user.username},
-    //     {name:"Bot naam",value: bot.user.username}
-    // )
- 
-    if (command === `${prefix}serverinfo`) {
- 
-        var serverEmbed = new discord.MessageEmbed()
-            .setDescription("Zet de beschrijving")
-            .setColor("#kleur")
-            .addField("Bot naam", client.user.username)
-            .addField("Je bent deze server gejoind op", message.member.joinedAt)
-            .addField("Totaal memebers", message.guild.memberCount);
- 
-        return message.channel.send(serverEmbed);
-    }
-
     if (command === `${prefix}kick`) {
  
         const args = message.content.slice(prefix.length).split(/ +/);
